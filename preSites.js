@@ -7,7 +7,6 @@ shell.cp("-R", "node_modules/@opentinyvue/vue-docs", "sites");
 const pkg = JSON.parse(shell.cat("sites/package.json"));
 delete pkg.devDependencies["@opentiny-internal/unplugin-virtual-template"];
 delete pkg.devDependencies["@opentiny/vue-mobile"];
-pkg.scripts["build"] = "vite build --mode pages";
 shell.ShellString(JSON.stringify(pkg, null, 2)).to("sites/package.json");
 
 // 修改sites/vite.config.js
@@ -28,13 +27,13 @@ const newConfigJs = configJs
 shell.ShellString(newConfigJs.join("\n")).to(file);
 
 // 修复该.env.pages文件
-const envFile = "sites/env/.env.pages";
+const envFile = "sites/env/.env.saaspages";
 const envConfig = shell.cat(envFile);
 const newEnvConfig = envConfig.split("\n").map((row) => {
   if (row.includes("/playground.html")) {
     return row.replace(
       /VITE_PLAYGROUND_URL=(.+)playground.html/,
-      "VITE_PLAYGROUND_URL=/tiny-vue-web-doc/playground.html"
+      "VITE_PLAYGROUND_URL=/tiny-vue-saas-web-doc/playground.html"
     );
   }
   return row;
