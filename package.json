@@ -21,6 +21,7 @@
     "@opentinyvue/vue-renderless": "^3.27.0",
     "@opentinyvue/vue-flowchart": "^3.27.0",
     "@opentinyvue/vue-modal": "^3.27.0",
+    "@opentinyvue/vue-fluent-editor": "^3.27.0",
     "postcss-nesting": "^13.0.2",
     "echarts": "5.4.1",
     "echarts-liquidfill": "3.1.0",
